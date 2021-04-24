@@ -1,0 +1,59 @@
+PATH
+  remote: ../hobby-json-keys
+  specs:
+    hobby-json-keys (0.0.0)
+      hobby-json (~> 0.0.6)
+
+PATH
+  remote: .
+  specs:
+    hobby-rpc (0.0.0)
+      hobby (~> 0.2.2)
+      hobby-auth (~> 0.1.0)
+      hobby-json-keys (~> 0.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    awesome_print (1.9.2)
+    bgem (0.0.12)
+      string-indent (>= 0.0.1)
+    coderay (1.1.3)
+    excon (0.80.1)
+    hobby (0.2.2)
+      rack (~> 2)
+    hobby-auth (0.1.0)
+    hobby-json (0.0.6)
+      hobby (~> 0.2.2)
+    method_source (1.0.0)
+    minitest (5.14.4)
+    nio4r (2.5.7)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    puma (5.2.2)
+      nio4r (~> 2.0)
+    rack (2.2.3)
+    rake (13.0.3)
+    string-indent (0.0.1)
+    terminal-table (3.0.0)
+      unicode-display_width (~> 1.1, >= 1.1.1)
+    unicode-display_width (1.7.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  bgem
+  excon
+  hobby-json-keys!
+  hobby-rpc!
+  minitest
+  pry
+  puma
+  rake
+  terminal-table
+
+BUNDLED WITH
+   2.1.4
