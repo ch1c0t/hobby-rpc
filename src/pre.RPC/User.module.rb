@@ -8,6 +8,7 @@ def self.find_by_token token
       return user
     end
   end
+  return false
 end
 
 def can? _function
