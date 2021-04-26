@@ -41,9 +41,6 @@ class Client
 we would like. The role names would be specific to the business logic
 of your application.
 
-[hobby-rpc]: https://rubygems.org/gems/hobby-rpc
-[forbidden]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
-
 ### Defining functions
 An RPC function is a Ruby constant whose object implements `.call` method
 that can accept `user` and `input` parameters. It can accept them either
@@ -68,3 +65,32 @@ end
 ```
 
 A `user` would be an instance of a user role defined earlier.
+
+### Running a server
+To start a server, we can use [rackup][rackup]. For that, we can put the
+following into `config.ru`:
+```ruby
+require 'hobby/rpc'
+run Hobby::RPC.new
+```
+
+Or we can use Puma directly as follows:
+```ruby
+require 'hobby/rpc'
+require 'puma'
+
+server = Puma::Server.new Hobby::RPC.new
+server.add_tcp_listener '127.0.0.1', port
+server.run
+sleep
+```
+
+## Development
+
+To work on `hobby-rpc` itself, you can build the project and run the tests:
+
+`bundle exec rake`
+
+[hobby-rpc]: https://rubygems.org/gems/hobby-rpc
+[forbidden]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+[rackup]: https://github.com/rack/rack/wiki/(tutorial)-rackup-howto
