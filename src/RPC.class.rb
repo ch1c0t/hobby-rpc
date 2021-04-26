@@ -6,8 +6,6 @@ include Hobby
 include Auth[User]
 include JSON::Keys
 
-use CORS
-
 key :fn, String
 optional {
   key :in
@@ -27,3 +25,11 @@ User post {
     response.status = 400
   end
 }
+
+def initialize hash = {}
+  if cors_origins = hash[:cors_origins]
+    use CORS, origins: cors_origins
+  else
+    use CORS
+  end
+end

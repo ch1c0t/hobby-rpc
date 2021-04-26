@@ -85,6 +85,12 @@ server.run
 sleep
 ```
 
+By default, it will return permissive [CORS][cors] headers for requests from any origin.
+You can restrict the origins from which requests will be accepted as follows:
+```ruby
+Hobby::RPC.new cors_origins: ['https://some.domain', 'https://another.domain']
+```
+
 ## Development
 
 To work on `hobby-rpc` itself, you can build the project and run the tests:
@@ -94,3 +100,4 @@ To work on `hobby-rpc` itself, you can build the project and run the tests:
 [hobby-rpc]: https://rubygems.org/gems/hobby-rpc
 [forbidden]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
 [rackup]: https://github.com/rack/rack/wiki/(tutorial)-rackup-howto
+[cors]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing

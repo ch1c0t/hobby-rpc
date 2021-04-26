@@ -45,7 +45,7 @@ module AppSetup
     @pid = fork do
       require_relative 'service'
 
-      server = Puma::Server.new app.new
+      server = Puma::Server.new app
       server.add_unix_listener socket
       server.run
       sleep
@@ -60,19 +60,19 @@ module AppSetup
   end
 end
 
-def test name, description, &block
+def test name, description, app: Hobby::RPC.new, &block
   socket = "#{DIR}/#{name}.#{Time.now.to_i}.#{SecureRandom.uuid}"
 
   Class.new Minitest::Test do
     include AppSetup
 
-    define_method :app do Hobby::RPC end
+    define_method :app do app end
     define_method :socket do socket end
     define_method description, &block
   end
 end
 
-def it summary, &block
+def it summary, app: Hobby::RPC.new, &block
   name = File.basename caller_locations.first.path, '.rb'
-  test name, "#{name}(it #{summary})", &block
+  test name, "#{name}(it #{summary})", app: app, &block
 end
