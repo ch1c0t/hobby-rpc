@@ -19,7 +19,7 @@ User post {
 
     if user.can? function
       function = Object.const_get function
-      function[user: user, input: keys[:in]]
+      function.(user: user, input: keys[:in])
     else
       response.status = 403
     end

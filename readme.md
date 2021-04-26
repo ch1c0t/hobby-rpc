@@ -43,3 +43,28 @@ of your application.
 
 [hobby-rpc]: https://rubygems.org/gems/hobby-rpc
 [forbidden]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+### Defining functions
+An RPC function is a Ruby constant whose object implements `.call` method
+that can accept `user` and `input` parameters. It can accept them either
+as a Hash or as keyword arguments. For example:
+
+```ruby
+module SomeFunction
+  def self.call hash
+    hash[:user]
+    hash[:input]
+    'return any value'
+  end
+end
+
+module SomeNamespace
+  module SomeFunction
+    def self.call user:, input:
+      'return any value'
+    end
+  end
+end
+```
+
+A `user` would be an instance of a user role defined earlier.

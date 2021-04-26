@@ -11,13 +11,13 @@ class Client
 end
 
 module First
-  def self.[] user:, input:
+  def self.call user:, input:
     input
   end
 end
 
 module Second
-  def self.[] hash
+  def self.call hash
     hash[:input]
   end
 end
