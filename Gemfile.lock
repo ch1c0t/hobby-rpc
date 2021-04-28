@@ -7,9 +7,10 @@ PATH
 PATH
   remote: .
   specs:
-    hobby-rpc (0.0.0)
+    hobby-rpc (0.0.1)
       hobby (~> 0.2.2)
       hobby-auth (~> 0.1.0)
+      hobby-cors (~> 0.1.0)
       hobby-json-keys (~> 0.0.0)
 
 GEM
@@ -23,6 +24,8 @@ GEM
     hobby (0.2.2)
       rack (~> 2)
     hobby-auth (0.1.0)
+    hobby-cors (0.1.0)
+      rack (~> 2)
     hobby-json (0.0.6)
       hobby (~> 0.2.2)
     method_source (1.0.0)

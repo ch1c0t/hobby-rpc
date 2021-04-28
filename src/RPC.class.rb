@@ -1,6 +1,7 @@
 require 'hobby'
 require 'hobby/auth'
 require 'hobby/json/keys'
+require 'hobby/cors'
 
 include Hobby
 include Auth[User]

@@ -12,4 +12,5 @@ Gem::Specification.new do |g|
   g.add_dependency 'hobby', '~> 0.2.2'
   g.add_dependency 'hobby-auth', '~> 0.1.0'
   g.add_dependency 'hobby-json-keys', '~> 0.0.0'
+  g.add_dependency 'hobby-cors', '~> 0.1.0'
 end
