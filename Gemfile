@@ -9,6 +9,4 @@ gem 'awesome_print'
 gem 'bgem'
 gem 'pry'
 
-gem 'hobby-json-keys', path: '~/sources/ruby/hobby-json-keys'
-
 gemspec

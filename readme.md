@@ -51,14 +51,14 @@ module SomeFunction
   def self.call hash
     hash[:user]
     hash[:input]
-    'return any value'
+    'return any value serializable to JSON'
   end
 end
 
 module SomeNamespace
   module SomeFunction
     def self.call user:, input:
-      'return any value'
+      'return any value serializable to JSON'
     end
   end
 end
@@ -91,6 +91,10 @@ You can restrict the origins from which requests will be accepted as follows:
 Hobby::RPC.new cors_origins: ['https://some.domain', 'https://another.domain']
 ```
 
+### Calling functions
+
+To call RPC functions from browsers, you can use [this client][hobby-rpc.clients.js].
+
 ## Development
 
 To work on `hobby-rpc` itself, you can build the project and run the tests:
@@ -101,3 +105,4 @@ To work on `hobby-rpc` itself, you can build the project and run the tests:
 [forbidden]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
 [rackup]: https://github.com/rack/rack/wiki/(tutorial)-rackup-howto
 [cors]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
+[hobby-rpc.clients.js]: https://github.com/ch1c0t/hobby-rpc.clients.js

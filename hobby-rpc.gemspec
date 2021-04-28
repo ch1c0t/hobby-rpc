@@ -1,7 +1,7 @@
 Gem::Specification.new do |g|
   g.name          = 'hobby-rpc'
   g.files         = ['lib/hobby/rpc.rb']
-  g.version       = '0.0.1'
+  g.version       = '0.0.2'
   g.summary       = 'A simple RPC system.'
   g.description   = 'A simple RPC system for callable Ruby constants. It allows to expose them over HTTP safely, only to authorized users.'
   g.author        = 'Anatoly Chernov'
