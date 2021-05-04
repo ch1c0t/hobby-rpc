@@ -4,6 +4,10 @@ Hobby-RPC is a simple RPC system for callable Ruby constants. It allows to expos
 
 It is available on RubyGems as [hobby-rpc][hobby-rpc].
 
+The idea is to separate transport and business logic. Hobby-RPC handles the transport layer and
+provides [a client for browsers][hobby-rpc.clients.js]; we can focus on defining business logic,
+which will be transport-independent.
+
 ## Usage
 ### Defining user roles
 
@@ -66,6 +70,13 @@ end
 
 A `user` would be an instance of a user role defined earlier.
 
+An `input` would be an object deserialized from JSON or `nil`.
+It is what the client can pass to a function as an argument.
+
+The functions must return something serializable `#to_json`.
+The client will get this as a response. Or, in case of an error inside of a function,
+the client will get [400 Bad Request][bad_request].
+
 ### Running a server
 To start a server, we can use [rackup][rackup]. For that, we can put the
 following into `config.ru`:
@@ -103,6 +114,7 @@ To work on `hobby-rpc` itself, you can build the project and run the tests:
 
 [hobby-rpc]: https://rubygems.org/gems/hobby-rpc
 [forbidden]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+[bad_request]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
 [rackup]: https://github.com/rack/rack/wiki/(tutorial)-rackup-howto
 [cors]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 [hobby-rpc.clients.js]: https://github.com/ch1c0t/hobby-rpc.clients.js
