@@ -96,8 +96,8 @@ server.run
 sleep
 ```
 
-By default, it will return permissive [CORS][cors] headers for requests from any origin.
-You can restrict the origins from which requests will be accepted as follows:
+By default, it will return permissive [CORS][cors] headers(`Access-Control-Allow-Origin: *`)
+for requests from any origin. For private APIs, you might want to restrict that:
 ```ruby
 Hobby::RPC.new cors_origins: ['https://some.domain', 'https://another.domain']
 ```
