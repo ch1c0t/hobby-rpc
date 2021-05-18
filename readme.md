@@ -16,6 +16,8 @@ First, we need to define who the users are and what they can do. Otherwise, all 
 We can do this by creating at least one user role. A user role is a class that includes `Hobby::RPC::User` and implements `.find_by_token` and `#can?` methods. For example:
 
 ```ruby
+require 'hobby/rpc'
+
 class Client
   include Hobby::RPC::User
 
@@ -81,19 +83,7 @@ the client will get [400 Bad Request][bad_request].
 To start a server, we can use [rackup][rackup]. For that, we can put the
 following into `config.ru`:
 ```ruby
-require 'hobby/rpc'
 run Hobby::RPC.new
-```
-
-Or we can use Puma directly as follows:
-```ruby
-require 'hobby/rpc'
-require 'puma'
-
-server = Puma::Server.new Hobby::RPC.new
-server.add_tcp_listener '127.0.0.1', port
-server.run
-sleep
 ```
 
 By default, it will return permissive [CORS][cors] headers(`Access-Control-Allow-Origin: *`)
