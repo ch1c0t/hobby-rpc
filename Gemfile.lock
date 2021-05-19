@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hobby-rpc (0.0.2)
+    hobby-rpc (0.0.3)
       hobby (~> 0.2.2)
       hobby-auth (~> 0.1.0)
       hobby-cors (~> 0.1.0)
