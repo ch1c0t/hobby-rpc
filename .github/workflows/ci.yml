@@ -12,4 +12,4 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: ${{ matrix.ruby }}
-      - run: bundle exec rspec
+      - run: bundle exec rake
