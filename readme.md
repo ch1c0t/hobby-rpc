@@ -95,6 +95,7 @@ Hobby::RPC.new cors_origins: ['https://some.domain', 'https://another.domain']
 ### Calling functions
 
 To call RPC functions from browsers, you can use [this client][hobby-rpc.clients.js].
+It works via [the Hobby-RPC protocol][protocol].
 
 ## Development
 
@@ -108,3 +109,4 @@ To work on `hobby-rpc` itself, you can build the project and run the tests:
 [rackup]: https://github.com/rack/rack/wiki/(tutorial)-rackup-howto
 [cors]: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 [hobby-rpc.clients.js]: https://github.com/ch1c0t/hobby-rpc.clients.js
+[protocol]: https://github.com/ch1c0t/hobby-rpc.protocol
